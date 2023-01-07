@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+#action="{{ url_for('wtform') }}"
+{% block content %}
+<div class="container">
+    <h1>{% block title %}Register new User{% endblock %}</h1>
+    <br>
+
+    <div class="col-lg-9">
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div>
+        <div>
+           {{ form.email.label}}
+            {{ form.email(class="form-control") }}
+        </div>
+        <div>
+           {{ form.username.label}}
+            {{ form.username(class="form-control") }}
+        </div>
+        <div>
+           {{ form.name.label}}
+            {{ form.name(class="form-control") }}
+        </div>
+        <div>
+           {{ form.password.label}}
+            {{ form.password(class="form-control") }}
+        </div>
+        <br>
+        <div>
+
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+        </div>
+
+    </form>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

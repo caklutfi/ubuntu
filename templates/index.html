@@ -1,0 +1,37 @@
+{%extends "base.html" %}
+{%block content%}
+
+    {% with messages = get_flashed_messages() %}
+       {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+
+          {% endfor %}
+       {% endif %}
+    {% endwith %}
+
+<div class="container p-3 align-middle">
+    <h1>Halo {{variabel}}, Selamat datang di Seven Seas Visual</h1>
+    <h4 class="text-secondary">Beritahu kami apa yang anda butuhkan</h4>
+
+    <div class="row  p-3">
+        {% for i in json%}
+        <div class="card p-1 m-2 h-50" style="width: 18rem;">
+            <img src="static/{{json[i]['image']}}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{json[i]['title']}}</h5>
+            <p class="card-text">{{json[i]['content']}}</p>
+            <a href="http://bit.ly/biossvc" class="btn btn-primary">Book a session</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
